@@ -11,7 +11,7 @@ object withFilter {
   }                                               //> isEven: (x: Int)Boolean
   
   
-  val evenList = xs filter isEven                 //> isEven 1
+  val evenList = xs.filter(isEven)                //> isEven 1
                                                   //| isEven 2
                                                   //| isEven 3
                                                   //| isEven 4
@@ -19,8 +19,8 @@ object withFilter {
                                                    
   // Compare to withFilter that creates a view but does not perform
   // the filtering immediately,
-  val evenView = xs withFilter isEven             //> evenView  : scala.collection.generic.FilterMonadic[Int,List[Int]] = scala.co
-                                                  //| llection.TraversableLike$WithFilter@726343c4
+  val evenView = xs.withFilter(isEven)            //> evenView  : scala.collection.generic.FilterMonadic[Int,List[Int]] = scala.co
+                                                  //| llection.TraversableLike$WithFilter@417e9329
   // The filtering is performed when the view is iterated
   for {
     e <- evenView
@@ -47,7 +47,7 @@ object withFilter {
                                               
    val vw = xs.withFilter(isEven).withFilter(isGreaterThanTwo)
                                                   //> vw  : scala.collection.generic.FilterMonadic[Int,List[Int]] = scala.collecti
-                                                  //| on.TraversableLike$WithFilter@3862bba7
+                                                  //| on.TraversableLike$WithFilter@3b8e2477
  
   for {
     e <- vw
